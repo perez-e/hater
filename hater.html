@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Haters Hate</title>
+	<script>
+	window.onload = function(){
+		hater = document.getElementById("hater");
+		width = document.body.clientWidth;
+		space = 0;
+		var go = "right";
+
+		function flipIt(){
+		  hater.classList.toggle("flip");
+		}
+
+
+		var move = function() {
+		  hater.style.left = space + "px";
+		  if (hater.offsetLeft < width-250 && go==="right"){
+		      space += 5;
+		  } else if (hater.offsetLeft < -180 ) {
+		  	if ( go === "left" ) { flipIt() }
+		    go = "right";
+		  }
+		  else {
+		    space -= 5;
+		    if (go === "right"){  flipIt()  }
+		    go = "left";
+		  } 
+		}
+
+		setInterval(move, 25)
+
+	}
+	</script>
+
+	<style type="text/css">
+		#hater {
+		  position: relative;
+		  width: 500px;
+		}
+
+		.flip {
+		  
+		-webkit-transform:rotateY(180deg);
+		}
+
+
+	</style>
+</head>
+<body>
+
+  <img src="https://a248.e.akamai.net/camo.github.com/56a9cd8b7e9ebbdcc75dc7baf56986a08650f50d/687474703a2f2f74686573656172657468696e67732e636f6d2f776f726b2f686174657273676f6e6e61686174652f696d672f686174657273676f6e6e61686174652d30312e676966" id="hater"/>
+
+</body>
+</html>
